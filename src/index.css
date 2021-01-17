@@ -17,10 +17,13 @@ body {
 
 header {
    margin: 5rem 0 2rem 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
 }
 
 header h1 {
-      text-align: center;
+   padding-left: 1rem;
 }
 
 
