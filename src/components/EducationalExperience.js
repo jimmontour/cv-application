@@ -3,6 +3,8 @@ import AddEducation from './AddEducation'
 
 export default class EducationalExperience extends Component {
    render() {
+
+
       return (
          <div>
             <h2>Educational Experience:</h2>
