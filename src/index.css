@@ -15,7 +15,7 @@ body {
    margin: 0 auto;
    background: #fff;
    border: #000 2px solid;
-   padding: 4rem 0 1rem 0;
+   padding: 4rem 1rem 1rem 1rem;
 }
 
 header {
@@ -50,7 +50,7 @@ header h1 {
 }
 
 main h2 {
-   margin: 2rem 0 1rem 0;
+   margin: 6rem 0 1rem 0;
    text-align: center;
 
 }
@@ -84,6 +84,7 @@ input {
    display: block;
    width: 100%;
    text-align: center;
+   border-bottom: black solid 1px;
 }
 
 input:focus {
@@ -93,7 +94,6 @@ input:focus {
 }
 
 form {
-   border: 1px #FDCE66 solid;
    display: flex;
    justify-content: space-between;
    align-items: center;

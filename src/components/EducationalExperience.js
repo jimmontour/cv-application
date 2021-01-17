@@ -9,7 +9,7 @@ export default class EducationalExperience extends Component {
             <AddEducation />
             <div className="add-education">
                <i class="fas fa-plus"></i>
-               <p>Add Educational Experience</p>
+               <p>Add Another Educational Experience</p>
             </div>
 
          </div>
