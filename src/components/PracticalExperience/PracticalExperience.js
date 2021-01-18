@@ -18,6 +18,7 @@ export default class PracticalExperience extends Component {
       }
 
       this.handleClick = this.handleClick.bind(this)
+      this.handleChange = this.handleChange.bind(this)
    }
 
    handleClick(e) {
@@ -27,12 +28,21 @@ export default class PracticalExperience extends Component {
       }))
    }
 
+   handleChange(e) {
+      this.setState(prevState => ({
+         practical: {
+            ...prevState,
+            [e.target.name]: e.target.value,
+         }
+      }))
+   }
+
    render() {
       return (
          <div>
             <h2>Practical Experience:</h2>
             {!this.state.inputHidden &&
-            <AddPractical handleClick={this.handleClick}/>
+            <AddPractical handleChange={this.handleChange} handleClick={this.handleClick}/>
             }
 
             {this.state.inputHidden &&
