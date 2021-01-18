@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 
 export default class AddPractical extends Component {
+   constructor(props) {
+      super(props)
+   }
    render() {
       return (
          <div>
@@ -11,7 +14,7 @@ export default class AddPractical extends Component {
                <input type="text" placeholder="End Date" />
                <input type="text" placeholder="Duties" />
 
-               <button>Add</button>
+               <button onClick={this.props.handleClick}>Add</button>
             </form>
          </div>
       )
