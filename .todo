@@ -1,5 +1,9 @@
-Educational Exerience:
-   ☐ Fill out the form
-   ☐ state captured onChange
-   ☐ onClick add, append new object to educationlist
-   ☐ map thought the education list array and print each
+Educational Experience:
+   ✔ add btn is clicked @done(21-01-18 16:15)
+   ☐ the values in education state are passed to a new object in the education array in state
+   ☐ the education array is mapped out above the form area, under educational experience
+
+
+Bugs:
+   ✔ when onChange runs in Education, its created a nested Education object.  Should just update the Education object that already exists. @done(21-01-18 16:14)
+✔ @done(21-01-18 16:14)

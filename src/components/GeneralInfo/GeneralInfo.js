@@ -22,8 +22,6 @@ export default class GeneralInfo extends Component {
             ...prevState.general,
              [e.target.name]: e.target.value,
          }
-
-
       }))
    }
 

@@ -31,14 +31,13 @@ export default class EducationalExperience extends Component {
    handleChange(e) {
       this.setState(prevState => ({
          education: {
-            ...prevState,
+            ...prevState.education,
             [e.target.name]: e.target.value,
          }
       }))
    }
 
    render() {
-
 
       return (
          <div>
