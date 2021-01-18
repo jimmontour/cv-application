@@ -113,3 +113,12 @@ input:focus {
 .add-education i, .add-practical i {
   margin-right: 1rem;
 }
+
+.general-info-printed {
+   displaY: flex;
+   justify-content:space-around;
+}
+
+.hide {
+   display: none;
+}
