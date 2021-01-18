@@ -18,12 +18,22 @@ export default class EducationalExperience extends Component {
       }
 
       this.handleClick = this.handleClick.bind(this)
+      this.handleChange = this.handleChange.bind(this)
    }
 
    handleClick(e) {
       e.preventDefault()
       this.setState(prevState => ({
          inputHidden: !prevState.inputHidden,
+      }))
+   }
+
+   handleChange(e) {
+      this.setState(prevState => ({
+         education: {
+            ...prevState,
+            [e.target.name]: e.target.value,
+         }
       }))
    }
 
@@ -34,7 +44,7 @@ export default class EducationalExperience extends Component {
          <div>
             <h2>Educational Experience:</h2>
             {!this.state.inputHidden &&
-            <AddEducation handleClick={this.handleClick} />
+            <AddEducation handleChange={this.handleChange} handleClick={this.handleClick} />
             }
             {this.state.inputHidden &&
             <div className="add-education" onClick={this.handleClick}>
