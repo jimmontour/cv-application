@@ -1,18 +1,15 @@
 import React, { Component } from 'react'
+import MainContent from '../MainContent'
 
 export default class GeneralInfo extends Component {
    constructor(props) {
       super(props)
 
       this.state = {
-         inputDisplay: true,
-         printDisplay: false,
+         inputHidden: false,
+         outputHidden: true,
          addBtn: true,
-         general: {
-            name: '',
-            email: '',
-            phone: '',
-         }
+         general: {},
       }
 
       this.handleChange = this.handleChange.bind(this)
@@ -20,35 +17,43 @@ export default class GeneralInfo extends Component {
    }
 
    handleChange(e) {
-
       this.setState(prevState => ({
          general: {
             ...prevState.general,
-            [e.target.name]: e.target.value,
+             [e.target.name]: e.target.value,
          }
+
+
       }))
    }
 
    handleClick(e) {
       e.preventDefault();
       console.log('clicked')
+      this.toggleHidden()
    }
 
-   toggleDisplay() {
-      console.log('go away!')
+   toggleHidden() {
+      this.setState(prevState => ({
+         inputHidden: !prevState.inputHidden,
+         outputHidden: !prevState.outputHidden,
+      }))
    }
-
 
    render() {
+
 
       return (
          <div>
             <h2>General Information:</h2>
-            <div className="general-info-printed hide">
+            {this.state.inputHidden &&
+            <div className="general-info-printed">
                <p>Name: {this.state.general.name}</p>
                <p>Email: {this.state.general.email}</p>
                <p>Phone: {this.state.general.phone}</p>
             </div>
+            }
+            {this.state.outputHidden &&
             <div>
                <input
                   name="name"
@@ -68,8 +73,13 @@ export default class GeneralInfo extends Component {
                   type="text" placeholder="Phone Number"
                   onChange={this.handleChange}
                />
-               <button onClick={this.handleClick}>Add</button>
             </div>
+            }
+            <div>
+               <button onClick={this.handleClick}>{this.state.outputHidden ? "Add" : "Edit"}</button>
+            </div>
+
+
          </div>
       )
    }
