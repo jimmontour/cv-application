@@ -56,7 +56,10 @@ main h2 {
 }
 
 button {
+   display: block;
    border: none;
+   width: 50%;
+   margin: 1rem auto;
    border-radius: 10px;
    padding: .75rem 1.25rem;
    background-color: #27363B;
@@ -92,12 +95,6 @@ input:focus {
    background: #FDCE66;
    outline: none;
 
-}
-
-form {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
 }
 
 .add-education, .add-practical {

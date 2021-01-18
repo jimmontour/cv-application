@@ -8,7 +8,7 @@ export default class PracticalExperience extends Component {
             <h2>Practical Experience:</h2>
             <AddPractical />
             <div className="add-practical">
-               <i class="fas fa-plus"></i>
+               <i className="fas fa-plus"></i>
                <p>Add Another Practical Experience</p>
             </div>
          </div>
