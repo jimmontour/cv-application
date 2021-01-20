@@ -1,9 +1,18 @@
-Educational Experience:
-   ✔ add btn is clicked @done(21-01-18 16:15)
-   ☐ the values in education state are passed to a new object in the education array in state
-   ☐ the education array is mapped out above the form area, under educational experience
+Styling:
+   ☐ make the inputs more pleasant looking
+   ☐ add option to choose from a few layouts.  have data applied to the chosen outline.
+   ☐ make the list of schools and jobs neater when displayed
+   ☐ make a better logo
 
+Markup:
+   ☐ make the footer links open in a new tab
+
+
+Scripting:
+   ☐ functionality to choose a style and have that created on screen
+   ☐ have a print resume or save pdf function
+   ☐ combine some components that have shared functionality, like education and jobs.
+   ☐ add a section to upload a profile picture
 
 Bugs:
-   ✔ when onChange runs in Education, its created a nested Education object.  Should just update the Education object that already exists. @done(21-01-18 16:14)
-✔ @done(21-01-18 16:14)
+☐ when clicking add without changing the values from the previous field, it creates a new array object with the previous values.  need to clear the fields upon sumission each time for education and practical.
