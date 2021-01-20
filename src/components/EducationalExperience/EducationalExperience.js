@@ -22,6 +22,9 @@ export default class EducationalExperience extends Component {
    }
 
    handleClick(e) {
+      if (!this.state.inputHidden) {
+         this.updateSchools();
+      }
       e.preventDefault()
       this.setState(prevState => ({
          inputHidden: !prevState.inputHidden,
@@ -37,11 +40,32 @@ export default class EducationalExperience extends Component {
       }))
    }
 
+   updateSchools() {
+      this.setState(prevState => ({
+         schoolList: [...prevState.schoolList, {
+            school: this.state.education.school,
+            field: this.state.education.field,
+            date: this.state.education.date,
+         }]
+      }))
+   }
+   
    render() {
 
       return (
          <div>
             <h2>Educational Experience:</h2>
+            <div>
+               {this.state.schoolList.map((school) => {
+                  return(
+                  <div className="school-printed">
+                     <p>School: {school.school}</p>
+                     <p>Field of Study: {school.field} </p>
+                     <p>Graduated: {school.date}</p>
+                  </div>
+                  )
+               })}
+            </div>
             {!this.state.inputHidden &&
             <AddEducation handleChange={this.handleChange} handleClick={this.handleClick} />
             }

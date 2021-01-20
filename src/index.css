@@ -126,3 +126,8 @@ input:focus {
 .show {
    display: block;
 }
+
+.school-printed {
+   display: flex;
+   justify-content: space-between;
+}
