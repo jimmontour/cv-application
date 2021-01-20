@@ -1,84 +1,62 @@
-import React, { Component } from 'react'
-import MainContent from '../MainContent'
+import React, { useState, useEffect } from 'react'
 
-export default class GeneralInfo extends Component {
-   constructor(props) {
-      super(props)
+export default function GeneralInfo(props) {
+   const [inputHidden, setInputHidden] = useState(false);
+   const [outputHidden, setOutputHidden] = useState(true);
+   const [addBtn, setAddBtn] = useState(true);
+   const [general, setGeneral] = useState({});
 
-      this.state = {
-         inputHidden: false,
-         outputHidden: true,
-         addBtn: true,
-         general: {},
-      }
-
-      this.handleChange = this.handleChange.bind(this)
-      this.handleClick = this.handleClick.bind(this)
+   const handleChange = (e) => {
+      console.log(e)
+         setGeneral({
+            ...general, [e.target.name]: e.target.value,
+         })
    }
 
-   handleChange(e) {
-      this.setState(prevState => ({
-         general: {
-            ...prevState.general,
-             [e.target.name]: e.target.value,
-         }
-      }))
+   const handleClick = (e) => {
+         e.preventDefault();
+         setInputHidden(!inputHidden)
+         setOutputHidden(!outputHidden)
    }
 
-   handleClick(e) {
-      e.preventDefault();
-      console.log('clicked')
-      this.toggleHidden()
-   }
+   return (
+      <div>
+         <h2>General Information:</h2>
 
-   toggleHidden() {
-      this.setState(prevState => ({
-         inputHidden: !prevState.inputHidden,
-         outputHidden: !prevState.outputHidden,
-      }))
-   }
-
-   render() {
-
-
-      return (
-         <div>
-            <h2>General Information:</h2>
-            {this.state.inputHidden &&
+         {inputHidden &&
             <div className="general-info-printed">
-               <p>Name: {this.state.general.name}</p>
-               <p>Email: {this.state.general.email}</p>
-               <p>Phone: {this.state.general.phone}</p>
+               <p>Name: {general.name}</p>
+               <p>Email: {general.email}</p>
+               <p>Phone: {general.phone}</p>
             </div>
-            }
-            {this.state.outputHidden &&
+         }
+
+         {outputHidden &&
             <div>
                <input
                   name="name"
-                  value={this.state.general.name}
+                  value={general.name}
                   type="text" placeholder="Name"
-                  onChange={this.handleChange}
+                  onChange={handleChange}
                />
                <input
                   name="email"
-                  value={this.state.general.email}
+                  value={general.email}
                   type="text" placeholder="Email"
-                  onChange={this.handleChange}
+               onChange={handleChange}
                />
                <input
                   name="phone"
-                  value={this.state.general.phone}
+                  value={general.phone}
                   type="text" placeholder="Phone Number"
-                  onChange={this.handleChange}
+               onChange={handleChange}
                />
             </div>
-            }
-            <div>
-               <button onClick={this.handleClick}>{this.state.outputHidden ? "Add" : "Edit"}</button>
-            </div>
+         }
 
-
+         <div>
+            <button onClick={handleClick}>{outputHidden ? "Add" : "Edit"}</button>
          </div>
-      )
-   }
+      </div>
+   )
 }

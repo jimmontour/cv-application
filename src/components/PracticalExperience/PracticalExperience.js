@@ -1,64 +1,52 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import AddPractical from './AddPractical'
 
-export default class PracticalExperience extends Component {
-   constructor(props) {
-      super(props)
+export default function PracticalExperience(props) {
 
-      this.state = {
-         inputHidden: true,
-         jobList: [],
-         practical: {
-            company: '',
-            position: '',
-            start: '',
-            end: '',
-            duties: '',
-         }
-      }
+   const [inputHidden, setInputHidden] = useState(true)
+   const [jobList, setJobList] = useState([])
+   const [practical, setPractical] = useState({
+      company: '',
+      position: '',
+      start: '',
+      start: '',
+      end: '',
+      duties: '',
+   })
 
-      this.handleClick = this.handleClick.bind(this)
-      this.handleChange = this.handleChange.bind(this)
-   }
-
-   handleClick(e) {
+   const handleClick = (e) => {
       e.preventDefault()
-      if (!this.state.inputHidden) {
-         this.updateJobs()
+      if (!inputHidden) {
+         updateJobs()
       }
-      this.setState(prevState => ({
-         inputHidden: !prevState.inputHidden,
-      }))
+         setInputHidden(!inputHidden)
    }
 
-   handleChange(e) {
-      this.setState(prevState => ({
-         practical: {
-            ...prevState.practical,
-            [e.target.name]: e.target.value,
-         }
-      }))
+   const handleChange = (e) => {
+      setPractical({
+         ...practical,
+         [e.target.name]: e.target.value,
+      })
    }
 
-   updateJobs() {
-      this.setState(prevState => ({
-         jobList: [...prevState.jobList, {
-            company: this.state.practical.company,
-            position: this.state.practical.position,
-            start: this.state.practical.start,
-            end: this.state.practical.end,
-            duties: this.state.practical.duties,
-         }]
-      }))
+   const updateJobs = () => {
+      setJobList([
+         ...jobList,
+         {
+         company: practical.company,
+         position: practical.position,
+         start: practical.start,
+         end: practical.end,
+         duties: practical.duties,
+      }
+   ])
    }
 
-
-   render() {
       return (
          <div>
             <h2>Practical Experience:</h2>
             <div>
-               {this.state.jobList.map((job) => {
+               {jobList.map((job) => {
                   return (
                      <div className="school-printed">
                         <p>Company: {job.company}</p>
@@ -71,17 +59,16 @@ export default class PracticalExperience extends Component {
             </div>
 
 
-            {!this.state.inputHidden &&
-            <AddPractical handleChange={this.handleChange} handleClick={this.handleClick}/>
+            {!inputHidden &&
+            <AddPractical handleChange={handleChange} handleClick={handleClick}/>
             }
 
-            {this.state.inputHidden &&
-            <div onClick={this.handleClick} className="add-practical">
+            {inputHidden &&
+            <div onClick={handleClick} className="add-practical">
                <i className="fas fa-plus"></i>
                <p>Add Practical Experience</p>
             </div>
             }
          </div>
       )
-   }
 }

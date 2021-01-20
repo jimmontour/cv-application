@@ -1,3 +1,8 @@
+Hooks:
+   ☐ convert classes to functions
+   ☐ import useState and useEffect
+   ☐ replace state with hooks
+
 Styling:
    ☐ make the inputs more pleasant looking
    ☐ add option to choose from a few layouts.  have data applied to the chosen outline.
